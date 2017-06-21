@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iotSensorClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsG-ql-pHe">
+                                <rect key="frame" x="16" y="453" width="343" height="160"/>
+                                <color key="backgroundColor" red="0.94654187817258884" green="0.94654187817258884" blue="0.94654187817258884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="CLO-qs-ZDm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="9"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmH-tq-1NS">
+                                <rect key="frame" x="32" y="621" width="36" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearLog:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Oa-y5-BK8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO(ppm)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8O-Dz-VzC">
+                                <rect key="frame" x="46" y="33" width="70.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="CKl-CM-84j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8C-7y-xpY">
+                                <rect key="frame" x="146.5" y="33" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvI-DW-6Ha">
+                                <rect key="frame" x="152" y="621" width="71" height="30"/>
+                                <state key="normal" title="Start/Stop"/>
+                                <connections>
+                                    <action selector="toggleStartStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a7M-ky-YEc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="U8C-7y-xpY" firstAttribute="centerY" secondItem="d8O-Dz-VzC" secondAttribute="centerY" id="20p-zO-T8W"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OmH-tq-1NS" secondAttribute="bottom" constant="16" id="MHr-A8-noc"/>
+                            <constraint firstItem="U8C-7y-xpY" firstAttribute="height" secondItem="d8O-Dz-VzC" secondAttribute="height" id="OvS-kb-esK"/>
+                            <constraint firstItem="OmH-tq-1NS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="Pny-Ve-u2d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZvI-DW-6Ha" secondAttribute="bottom" constant="16" id="YRb-LK-PGo"/>
+                            <constraint firstItem="d8O-Dz-VzC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="bO8-f8-eVT"/>
+                            <constraint firstItem="rsG-ql-pHe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="eex-XM-W0U"/>
+                            <constraint firstItem="OmH-tq-1NS" firstAttribute="top" secondItem="rsG-ql-pHe" secondAttribute="bottom" constant="8" id="fwP-YB-0Uq"/>
+                            <constraint firstItem="d8O-Dz-VzC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="kgn-A4-G8Q"/>
+                            <constraint firstItem="rsG-ql-pHe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="seu-RD-6pR"/>
+                            <constraint firstItem="U8C-7y-xpY" firstAttribute="leading" secondItem="d8O-Dz-VzC" secondAttribute="trailing" constant="30" id="xzP-UX-Rfw"/>
+                            <constraint firstItem="ZvI-DW-6Ha" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yJN-Xk-cyU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="coPpmValueLabel" destination="U8C-7y-xpY" id="d2X-zb-5q5"/>
+                        <outlet property="log" destination="rsG-ql-pHe" id="Pld-NC-max"/>
+                        <outlet property="startStopButton" destination="ZvI-DW-6Ha" id="TB8-bg-F0i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="130.88455772113943"/>
+        </scene>
+    </scenes>
+</document>

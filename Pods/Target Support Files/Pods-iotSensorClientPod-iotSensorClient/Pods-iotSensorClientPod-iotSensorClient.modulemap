@@ -1,0 +1,6 @@
+framework module Pods_iotSensorClientPod_iotSensorClient {
+  umbrella header "Pods-iotSensorClientPod-iotSensorClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		089EB9481EFA93490017D662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EB9471EFA93490017D662 /* AppDelegate.swift */; };
+		089EB94A1EFA93490017D662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EB9491EFA93490017D662 /* ViewController.swift */; };
+		089EB94D1EFA93490017D662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089EB94B1EFA93490017D662 /* Main.storyboard */; };
+		089EB94F1EFA93490017D662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 089EB94E1EFA93490017D662 /* Assets.xcassets */; };
+		089EB9521EFA93490017D662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089EB9501EFA93490017D662 /* LaunchScreen.storyboard */; };
+		089EB95C1EFA94B40017D662 /* SCRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 089EB95B1EFA94B40017D662 /* SCRouter.m */; };
+		3C66A0AFC7394BC9F3EDB1DD /* Pods_iotSensorClientPod_iotSensorClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DDACB70D66488F8066A39F /* Pods_iotSensorClientPod_iotSensorClient.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089EB9441EFA93490017D662 /* iotSensorClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iotSensorClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		089EB9471EFA93490017D662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		089EB9491EFA93490017D662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		089EB94C1EFA93490017D662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		089EB94E1EFA93490017D662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		089EB9511EFA93490017D662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		089EB9531EFA93490017D662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		089EB9591EFA94B30017D662 /* iotSensorClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iotSensorClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		089EB95A1EFA94B40017D662 /* SCRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRouter.h; sourceTree = "<group>"; };
+		089EB95B1EFA94B40017D662 /* SCRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRouter.m; sourceTree = "<group>"; };
+		089EB95D1EFA9F3B0017D662 /* Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		09DDACB70D66488F8066A39F /* Pods_iotSensorClientPod_iotSensorClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iotSensorClientPod_iotSensorClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		848AA808565D19CCC27D305E /* Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iotSensorClientPod-iotSensorClient/Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig"; sourceTree = "<group>"; };
+		DA3D9A48110EEEA56ACA9253 /* Pods-iotSensorClientPod-iotSensorClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iotSensorClientPod-iotSensorClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-iotSensorClientPod-iotSensorClient/Pods-iotSensorClientPod-iotSensorClient.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		089EB9411EFA93490017D662 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C66A0AFC7394BC9F3EDB1DD /* Pods_iotSensorClientPod_iotSensorClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089EB93B1EFA93490017D662 = {
+			isa = PBXGroup;
+			children = (
+				089EB9461EFA93490017D662 /* iotSensorClient */,
+				089EB9451EFA93490017D662 /* Products */,
+				5769524E2DF1CC050DF0721D /* Pods */,
+				D8B87DDE964508D8261CD574 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		089EB9451EFA93490017D662 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				089EB9441EFA93490017D662 /* iotSensorClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		089EB9461EFA93490017D662 /* iotSensorClient */ = {
+			isa = PBXGroup;
+			children = (
+				089EB95E1EFA9F580017D662 /* objC */,
+				089EB9471EFA93490017D662 /* AppDelegate.swift */,
+				089EB9491EFA93490017D662 /* ViewController.swift */,
+				089EB94B1EFA93490017D662 /* Main.storyboard */,
+				089EB94E1EFA93490017D662 /* Assets.xcassets */,
+				089EB9501EFA93490017D662 /* LaunchScreen.storyboard */,
+				089EB9531EFA93490017D662 /* Info.plist */,
+				089EB9591EFA94B30017D662 /* iotSensorClient-Bridging-Header.h */,
+			);
+			path = iotSensorClient;
+			sourceTree = "<group>";
+		};
+		089EB95E1EFA9F580017D662 /* objC */ = {
+			isa = PBXGroup;
+			children = (
+				089EB95D1EFA9F3B0017D662 /* Route.h */,
+				089EB95A1EFA94B40017D662 /* SCRouter.h */,
+				089EB95B1EFA94B40017D662 /* SCRouter.m */,
+			);
+			name = objC;
+			sourceTree = "<group>";
+		};
+		5769524E2DF1CC050DF0721D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				848AA808565D19CCC27D305E /* Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig */,
+				DA3D9A48110EEEA56ACA9253 /* Pods-iotSensorClientPod-iotSensorClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D8B87DDE964508D8261CD574 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09DDACB70D66488F8066A39F /* Pods_iotSensorClientPod_iotSensorClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		089EB9431EFA93490017D662 /* iotSensorClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 089EB9561EFA93490017D662 /* Build configuration list for PBXNativeTarget "iotSensorClient" */;
+			buildPhases = (
+				E75E9DFE9DFC1E6A05E0C5C7 /* [CP] Check Pods Manifest.lock */,
+				089EB9401EFA93490017D662 /* Sources */,
+				089EB9411EFA93490017D662 /* Frameworks */,
+				089EB9421EFA93490017D662 /* Resources */,
+				EEB50752BA57A6C893293F49 /* [CP] Embed Pods Frameworks */,
+				EAAC41568BCA721667F74255 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iotSensorClient;
+			productName = iotSensorClient;
+			productReference = 089EB9441EFA93490017D662 /* iotSensorClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089EB93C1EFA93490017D662 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = BuchaBros;
+				TargetAttributes = {
+					089EB9431EFA93490017D662 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2K9F73F4AY;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 089EB93F1EFA93490017D662 /* Build configuration list for PBXProject "iotSensorClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 089EB93B1EFA93490017D662;
+			productRefGroup = 089EB9451EFA93490017D662 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				089EB9431EFA93490017D662 /* iotSensorClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		089EB9421EFA93490017D662 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				089EB9521EFA93490017D662 /* LaunchScreen.storyboard in Resources */,
+				089EB94F1EFA93490017D662 /* Assets.xcassets in Resources */,
+				089EB94D1EFA93490017D662 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E75E9DFE9DFC1E6A05E0C5C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EAAC41568BCA721667F74255 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iotSensorClientPod-iotSensorClient/Pods-iotSensorClientPod-iotSensorClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEB50752BA57A6C893293F49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iotSensorClientPod-iotSensorClient/Pods-iotSensorClientPod-iotSensorClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		089EB9401EFA93490017D662 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				089EB94A1EFA93490017D662 /* ViewController.swift in Sources */,
+				089EB95C1EFA94B40017D662 /* SCRouter.m in Sources */,
+				089EB9481EFA93490017D662 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089EB94B1EFA93490017D662 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089EB94C1EFA93490017D662 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		089EB9501EFA93490017D662 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089EB9511EFA93490017D662 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		089EB9541EFA93490017D662 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		089EB9551EFA93490017D662 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		089EB9571EFA93490017D662 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 848AA808565D19CCC27D305E /* Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2K9F73F4AY;
+				INFOPLIST_FILE = iotSensorClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.truebucha.iotSensorClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iotSensorClient/iotSensorClient-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		089EB9581EFA93490017D662 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA3D9A48110EEEA56ACA9253 /* Pods-iotSensorClientPod-iotSensorClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 2K9F73F4AY;
+				INFOPLIST_FILE = iotSensorClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.truebucha.iotSensorClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iotSensorClient/iotSensorClient-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		089EB93F1EFA93490017D662 /* Build configuration list for PBXProject "iotSensorClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				089EB9541EFA93490017D662 /* Debug */,
+				089EB9551EFA93490017D662 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		089EB9561EFA93490017D662 /* Build configuration list for PBXNativeTarget "iotSensorClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				089EB9571EFA93490017D662 /* Debug */,
+				089EB9581EFA93490017D662 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089EB93C1EFA93490017D662 /* Project object */;
+}
