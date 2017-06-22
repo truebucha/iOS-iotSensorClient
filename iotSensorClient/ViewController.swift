@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         updateUI()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         coPpmValueLabel.text = nil;
     }
   
@@ -30,15 +29,27 @@ class ViewController: UIViewController {
       super.viewWillAppear(animated)
       
       updateUI()
+      prepareLogDateFormat()
+      subscribeToNotifications()
     }
+  
+     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        unsubscribeFromNotifications()
+    }
+  
+    // MARK: - events -
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func dropboxDidCahngeState (notification: NSNotification) {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let state = appDelegate.dropbox.state;
+//        
+//    
+//        if state == .connected
+//        || state == .reconnected {
+//          
+//       }
     }
-  
-    // MARK: - public -
-  
   
     @IBAction func toggleStartStop(_ sender: Any) {
       if (processing) {
@@ -52,6 +63,28 @@ class ViewController: UIViewController {
   
     @IBAction func clearLog(_ sender: Any) {
       log.text = nil
+    }
+  
+    @IBAction func exportLog(_ sender: Any) {
+      
+      let url = generateFileUrl()
+      
+      guard url != nil
+       else { return }
+     
+      let data = log.text.data(using: .utf8)
+      
+      guard data != nil
+        else { return }
+      
+      do {
+        try data!.write(to: url!, options: .atomicWrite)
+      } catch {
+        print("error write to file: \(error)")
+        return;
+      }
+      
+      updalodToDropbox(from: url!)
     }
 
     // MARK: - logic -
@@ -130,6 +163,66 @@ class ViewController: UIViewController {
       } else {
         startStopButton.setTitle("Start", for: .normal)
       }
+    }
+  
+    func prepareLogDateFormat() {
+      dateFormatter.dateFormat = "HH:mm:ss"
+    }
+  
+    func prepareExportDateFormat() {
+      dateFormatter.dateFormat = "yyyyMMdd'T'HHmmssZ"
+    }
+  
+    func generateFileUrl() -> URL? {
+      prepareExportDateFormat()
+      let date = dateFormatter.string(from: Date())
+      prepareLogDateFormat()
+      
+      let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+      guard path != nil
+        else { return nil }
+      
+      let fullPath = path! + "/" + date + ".txt"
+      let result = URL(fileURLWithPath: fullPath)
+      
+      return result
+    }
+  
+    func updalodToDropbox(from url: URL) {
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let dropbox = appDelegate.dropbox
+      
+      guard dropbox.state == .connected
+            || dropbox.state == .reconnected
+        else { return }
+      
+      let path = "/" + url.lastPathComponent
+      
+     dropbox.upload(toPath: path, from: url) { [weak self] (error) in
+        self?.showSuccedAler(message: "Uploaded to " + path)
+      }
+    }
+  
+    // MARK: notifications
+  
+    private func subscribeToNotifications () {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ViewController.dropboxDidCahngeState(notification:)),
+                                               name: NSNotification.Name(rawValue: appDelegate.dropboxStateChangedNotification),
+                                               object: appDelegate)
+    }
+    
+    private func unsubscribeFromNotifications () {
+        NotificationCenter.default.removeObserver(self)
+    }
+  
+    // MARK: show alert
+  
+    func showSuccedAler(message: String) {
+      let alert = UIAlertController(title: "Succeed", message: message, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
     }
 }
 

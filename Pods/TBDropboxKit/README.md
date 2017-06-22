@@ -9,10 +9,16 @@ Released in april and used gracefully in app store already
 
 ## Brief 
 
-  Stable version, core updated to ObjectiveDropboxOfficial 3.1.1.
+  Stable version, core updated to ObjectiveDropboxOfficial 3.1.2.
   This framework provide basic two way synchronization functionality for dropbox and changes nofification in both ways.
   It uses official dropbox API version 2 under the hood. It smoothes broken changes that official guys do every release.
   It was written using SOLID principles in DRY mode
+
+## Versions
+
+    1.1.5 
+        Updated to to ObjectiveDropboxOfficial 3.1.2 and checked
+        Improved iOS example logging
 
 ## Example
 

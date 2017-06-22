@@ -60,10 +60,18 @@
                                     <action selector="toggleStartStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a7M-ky-YEc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZh-la-JPG">
+                                <rect key="frame" x="32" y="415" width="103" height="30"/>
+                                <state key="normal" title="Export Session"/>
+                                <connections>
+                                    <action selector="exportLog:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ipg-3g-yKr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="U8C-7y-xpY" firstAttribute="centerY" secondItem="d8O-Dz-VzC" secondAttribute="centerY" id="20p-zO-T8W"/>
+                            <constraint firstItem="eZh-la-JPG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="HPa-O4-TRW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OmH-tq-1NS" secondAttribute="bottom" constant="16" id="MHr-A8-noc"/>
                             <constraint firstItem="U8C-7y-xpY" firstAttribute="height" secondItem="d8O-Dz-VzC" secondAttribute="height" id="OvS-kb-esK"/>
                             <constraint firstItem="OmH-tq-1NS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="Pny-Ve-u2d"/>
@@ -71,6 +79,7 @@
                             <constraint firstItem="d8O-Dz-VzC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="bO8-f8-eVT"/>
                             <constraint firstItem="rsG-ql-pHe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="eex-XM-W0U"/>
                             <constraint firstItem="OmH-tq-1NS" firstAttribute="top" secondItem="rsG-ql-pHe" secondAttribute="bottom" constant="8" id="fwP-YB-0Uq"/>
+                            <constraint firstItem="rsG-ql-pHe" firstAttribute="top" secondItem="eZh-la-JPG" secondAttribute="bottom" constant="8" id="jak-7Z-7lt"/>
                             <constraint firstItem="d8O-Dz-VzC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="kgn-A4-G8Q"/>
                             <constraint firstItem="rsG-ql-pHe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="seu-RD-6pR"/>
                             <constraint firstItem="U8C-7y-xpY" firstAttribute="leading" secondItem="d8O-Dz-VzC" secondAttribute="trailing" constant="30" id="xzP-UX-Rfw"/>
