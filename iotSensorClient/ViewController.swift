@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Charts
+
 
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var chartView: BarChartView!
   @IBOutlet weak var startStopButton: UIButton!
   @IBOutlet weak var log: UITextView!
   @IBOutlet weak var coPpmValueLabel: UILabel!
+  
+  var dataEntries: [BarChartDataEntry] = []
+  var dataEntriesCount: Int = 0
+  
   var timer: Timer?
   var processing: Bool { get {return timer != nil} }
   let dateFormatter = DateFormatter()
@@ -23,6 +30,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         updateUI()
         coPpmValueLabel.text = nil;
+        chartView.noDataText = "No data for the chart found."
     }
   
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +71,8 @@ class ViewController: UIViewController {
   
     @IBAction func clearLog(_ sender: Any) {
       log.text = nil
+      dataEntries = []
+      updateChartUI()
     }
   
     @IBAction func exportLog(_ sender: Any) {
@@ -106,7 +116,8 @@ class ViewController: UIViewController {
     func process() {
     
       let result = performRequest()
-      let date = dateFormatter.string(from: Date())
+      let currentDate = Date()
+      let date = dateFormatter.string(from: currentDate)
       
       guard result != nil
         else {
@@ -128,6 +139,15 @@ class ViewController: UIViewController {
       log.text = line + "\r\n" + log.text
       
       coPpmValueLabel.text = String(ppm)
+      
+      let dataEntry = BarChartDataEntry(x: Double(dataEntriesCount), y: Double(ppm))
+      dataEntries.append(dataEntry)
+      dataEntriesCount += 1
+      if (dataEntries.count > 15) {
+        dataEntries.remove(at: 0)
+      }
+      
+      updateChartUI();
     }
   
     func performRequest() -> Dictionary<String, Float>? {
@@ -223,6 +243,12 @@ class ViewController: UIViewController {
       let alert = UIAlertController(title: "Succeed", message: message, preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
+    }
+  
+    func updateChartUI() {
+      let chartDataSet = BarChartDataSet(values: dataEntries, label: "CO ppm")
+      let chartData = BarChartData(dataSet: chartDataSet)
+      chartView.data = chartData
     }
 }
 
