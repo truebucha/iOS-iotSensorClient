@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         coPpmValueLabel.text = nil;
         chartView.noDataText = "No data."
         	
-        chartView.descriptionText = ""
+        chartView.chartDescription = nil
     }
   
     override func viewWillAppear(_ animated: Bool) {
