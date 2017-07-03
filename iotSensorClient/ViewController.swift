@@ -30,7 +30,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         updateUI()
         coPpmValueLabel.text = nil;
-        chartView.noDataText = "No data for the chart found."
+        chartView.noDataText = "No data."
+        	
+        chartView.descriptionText = ""
     }
   
     override func viewWillAppear(_ animated: Bool) {
