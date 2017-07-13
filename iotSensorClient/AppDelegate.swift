@@ -13,13 +13,17 @@ import TinyDropbox
 class AppDelegate: UIResponder, UIApplicationDelegate, TinyDropboxDelegate {
 
   let dropboxStateChangedNotification = "dropboxStateChangedNotification"
-  let dropbox = TinyDropbox.shared
-  
+  lazy var dropbox: TinyDropbox = {
+    let result = TinyDropbox.shared
+    result.delegate = self
+    return result
+  }()
+
     var window: UIWindow?
 
+// MARK: - application lifecycle -
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      dropbox.delegate = self
 
         // Override point for customization after application launch.
         return true

@@ -18,18 +18,20 @@ class ViewController: UIViewController {
   @IBOutlet weak var log: UITextView!
   @IBOutlet weak var coPpmValueLabel: UILabel!
   
-  var dataEntries: [BarChartDataEntry] = []
-  var dataEntriesCount: Int = 0
+  private var dataEntries: [BarChartDataEntry] = []
+  private var dataEntriesCount: Int = 0
   
-  var timer: Timer?
-  var processing: Bool { get {return timer != nil} }
-  let dateFormatter = DateFormatter()
+  private var timer: Timer?
+  private var processing: Bool { get {return timer != nil} }
+  private let dateFormatter = DateFormatter()
+  
+  private var requestingData: Bool = false
   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         updateUI()
-        coPpmValueLabel.text = nil;
+        coPpmValueLabel.text = nil
         chartView.noDataText = "No data."
         	
         chartView.chartDescription = nil
@@ -102,8 +104,9 @@ class ViewController: UIViewController {
     // MARK: - logic -
   
     func startProcessing() {
-      timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] (Timer) in
-        self?.process()
+      let interval = TimeInterval(Settings.shared.requestIntervalInSec)
+      timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { [weak self] (Timer) in
+        self?.requestData()
       })
     }
   
@@ -115,8 +118,12 @@ class ViewController: UIViewController {
       timer = nil
     }
   
-    func process() {
-    
+    func requestData() {
+      guard requestingData == false
+        else { return }
+      
+      requestingData = true
+      
       let result = performRequest()
       let currentDate = Date()
       let date = dateFormatter.string(from: currentDate)
@@ -150,6 +157,8 @@ class ViewController: UIViewController {
       }
       
       updateChartUI();
+      
+      requestingData = false
     }
   
     func performRequest() -> Dictionary<String, Float>? {
