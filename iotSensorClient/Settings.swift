@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate let defaultSensorPort: Int = 8000
+fileprivate let defaultSensorPort: Int = 8090
 fileprivate let defaultSensorInApMode: Bool = true
 fileprivate let defaultRequestIntervalInSec: Int = 10
 
@@ -27,7 +27,7 @@ class Settings {
 
   static let shared: Settings = Settings()
 
-  var sensroInApMode : Bool {
+  var sensorConnectedToRouter : Bool {
     get {
       let result = UserDefaults.standard.bool(forKey: keySensorConnectedToRouter)
       return result
@@ -38,7 +38,17 @@ class Settings {
     }
   }
 
-  var sensorIp : String? {
+  var sensorIp: String? {
+    get {
+      if (Settings.shared.sensorConnectedToRouter) {
+        return userDefinedSensorIp
+      }
+ 
+      return sensorApIp
+    }
+  }
+  
+  var userDefinedSensorIp : String? {
     get {
       let result = UserDefaults.standard.object(forKey: keySensorIp) as? String
       return result
@@ -49,7 +59,7 @@ class Settings {
     }
   }
   
-  var sensorApIp : String? {
+  private(set) var sensorApIp : String? {
     get {
       let result = UserDefaults.standard.object(forKey: keySensorApIp) as? String
       return result
@@ -88,5 +98,12 @@ class Settings {
     }
   }
   
+  func updateRouterIp() {
+    let ip = SCRouter.routerIP()
+    guard ip != nil
+      else { return }
+      
+    sensorApIp = ip
+  }
   
 }

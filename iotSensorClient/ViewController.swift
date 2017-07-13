@@ -10,6 +10,10 @@ import UIKit
 import Charts
 
 
+typealias responseType = Dictionary<String, Float>?
+
+fileprivate let maxDisplayableEntriesCount: Int = 15;
+
 
 class ViewController: UIViewController {
 
@@ -43,6 +47,8 @@ class ViewController: UIViewController {
       updateUI()
       prepareLogDateFormat()
       subscribeToNotifications()
+      
+      Settings.shared.updateRouterIp()
     }
   
      override func viewDidDisappear(_ animated: Bool) {
@@ -108,6 +114,8 @@ class ViewController: UIViewController {
       timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { [weak self] (Timer) in
         self?.requestData()
       })
+      
+      self.requestData()
     }
   
     func stopProcessing() {
@@ -124,20 +132,29 @@ class ViewController: UIViewController {
       
       requestingData = true
       
-      let result = performRequest()
+      DispatchQueue.global(qos: .default).async { [weak self] in
+        let result = self?.performRequest()
+        DispatchQueue.main.async {
+          self?.requestingData = false
+          self?.processResponse(result)
+        }
+      }
+    }
+  
+    func processResponse(_ response: responseType) {
       let currentDate = Date()
       let date = dateFormatter.string(from: currentDate)
       
-      guard result != nil
+      guard response != nil
         else {
           log.text = date + " request failed" + "\r\n" + log.text
           return
         }
       
-      let ppm = result?["coPpm"] ?? 0.0
-      let temp = result?["temp"] ?? 0.0
-      let pressure = result?["pressure"] ?? 0.0
-      let humidity = result?["humidity"] ?? 0.0
+      let ppm = response?["coPpm"] ?? 0.0
+      let temp = response?["temp"] ?? 0.0
+      let pressure = response?["pressure"] ?? 0.0
+      let humidity = response?["humidity"] ?? 0.0
       
       var line = date
       line += " CO = \(ppm)"
@@ -152,17 +169,15 @@ class ViewController: UIViewController {
       let dataEntry = BarChartDataEntry(x: Double(dataEntriesCount), y: Double(ppm))
       dataEntries.append(dataEntry)
       dataEntriesCount += 1
-      if (dataEntries.count > 15) {
+      if (dataEntries.count > maxDisplayableEntriesCount) {
         dataEntries.remove(at: 0)
       }
       
       updateChartUI();
-      
-      requestingData = false
     }
   
-    func performRequest() -> Dictionary<String, Float>? {
-        let ip = SCRouter.routerIP()
+    func performRequest() -> responseType {
+        let ip = Settings.shared.sensorIp
         guard ip != nil
           else { return nil}
         
