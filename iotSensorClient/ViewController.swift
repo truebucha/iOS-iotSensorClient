@@ -234,17 +234,26 @@ class ViewController: UIViewController {
       return result
     }
   
-    func updalodToDropbox(from url: URL) {
+    func updalodToDropbox(from url: URL, couldRepeat: Bool = true) {
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
       let dropbox = appDelegate.dropbox
       
       guard dropbox.state == .connected
             || dropbox.state == .reconnected
-        else { return }
+        else {
+          if (couldRepeat) {
+            DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 1.5) { [weak self] in
+              self?.updalodToDropbox(from: url, couldRepeat: false)
+            }
+          } else {
+            showFailedAler(message: "Failed upload to dropbox. No dropbox connected.")
+          }
+          return
+        }
       
       let path = "/" + url.lastPathComponent
       
-     dropbox.upload(toPath: path, from: url) { [weak self] (error) in
+      dropbox.upload(toPath: path, from: url) { [weak self] (error) in
         self?.showSuccedAler(message: "Uploaded to " + path)
       }
     }
@@ -267,6 +276,12 @@ class ViewController: UIViewController {
   
     func showSuccedAler(message: String) {
       let alert = UIAlertController(title: "Succeed", message: message, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    }
+  
+    func showFailedAler(message: String) {
+      let alert = UIAlertController(title: "Failed", message: message, preferredStyle: .alert)
       alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
     }
