@@ -14,6 +14,7 @@
 		089EB9521EFA93490017D662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 089EB9501EFA93490017D662 /* LaunchScreen.storyboard */; };
 		089EB95C1EFA94B40017D662 /* SCRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 089EB95B1EFA94B40017D662 /* SCRouter.m */; };
 		08E91BD31F17603000EE8575 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E91BD21F17603000EE8575 /* Settings.swift */; };
+		08E91BD51F17853000EE8575 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E91BD41F17853000EE8575 /* SettingsViewController.swift */; };
 		3C66A0AFC7394BC9F3EDB1DD /* Pods_iotSensorClientPod_iotSensorClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DDACB70D66488F8066A39F /* Pods_iotSensorClientPod_iotSensorClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		089EB95B1EFA94B40017D662 /* SCRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRouter.m; sourceTree = "<group>"; };
 		089EB95D1EFA9F3B0017D662 /* Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		08E91BD21F17603000EE8575 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		08E91BD41F17853000EE8575 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		09DDACB70D66488F8066A39F /* Pods_iotSensorClientPod_iotSensorClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iotSensorClientPod_iotSensorClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		848AA808565D19CCC27D305E /* Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iotSensorClientPod-iotSensorClient/Pods-iotSensorClientPod-iotSensorClient.debug.xcconfig"; sourceTree = "<group>"; };
 		DA3D9A48110EEEA56ACA9253 /* Pods-iotSensorClientPod-iotSensorClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iotSensorClientPod-iotSensorClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-iotSensorClientPod-iotSensorClient/Pods-iotSensorClientPod-iotSensorClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,10 +70,10 @@
 		089EB9461EFA93490017D662 /* iotSensorClient */ = {
 			isa = PBXGroup;
 			children = (
+				08E91BD61F17853900EE8575 /* UI */,
+				08E91BD71F17854B00EE8575 /* Model */,
 				089EB95E1EFA9F580017D662 /* objC */,
 				089EB9471EFA93490017D662 /* AppDelegate.swift */,
-				089EB9491EFA93490017D662 /* ViewController.swift */,
-				08E91BD21F17603000EE8575 /* Settings.swift */,
 				089EB94B1EFA93490017D662 /* Main.storyboard */,
 				089EB94E1EFA93490017D662 /* Assets.xcassets */,
 				089EB9501EFA93490017D662 /* LaunchScreen.storyboard */,
@@ -89,6 +91,23 @@
 				089EB95B1EFA94B40017D662 /* SCRouter.m */,
 			);
 			name = objC;
+			sourceTree = "<group>";
+		};
+		08E91BD61F17853900EE8575 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				089EB9491EFA93490017D662 /* ViewController.swift */,
+				08E91BD41F17853000EE8575 /* SettingsViewController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		08E91BD71F17854B00EE8575 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08E91BD21F17603000EE8575 /* Settings.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		5769524E2DF1CC050DF0721D /* Pods */ = {
@@ -236,6 +255,7 @@
 				089EB94A1EFA93490017D662 /* ViewController.swift in Sources */,
 				089EB95C1EFA94B40017D662 /* SCRouter.m in Sources */,
 				08E91BD31F17603000EE8575 /* Settings.swift in Sources */,
+				08E91BD51F17853000EE8575 /* SettingsViewController.swift in Sources */,
 				089EB9481EFA93490017D662 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
