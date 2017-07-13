@@ -24,27 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ObjectMapper.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ObjectiveDropboxOfficial.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-iotSensorClientPod-iotSensorClient.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Realm.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,17 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>170799A9F5A1EAEAEB34FB7EC6190CB2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>182BA265FBDC4D4853A1928E9146FBA2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>196CF67B77C1E89689D42AA894E14A42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,32 +67,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B3CDE373D68A1167B319037CDC409FF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>6CFDB2966F92F84FABF8C699E62B33E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB9068F10CC6A8E93495DD099F08C69D</key>
+		<key>92915DA990FC0955FBEDE9866CCBB4A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD6C9FB6B052E1CF663F8A56041EA163</key>
+		<key>9682CB6EE062A84AF4B18B53068803B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6C972B6EC21B6BFEE43B9810B532BE2</key>
+		<key>A836802ED95B49524E657F45AC339110</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFBD5801BC5F01EFFCD6010BF40CE133</key>
+		<key>B1F72FF901EBB50673BE41BA07D506B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

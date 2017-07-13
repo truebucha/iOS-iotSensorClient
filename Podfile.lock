@@ -6,12 +6,6 @@ PODS:
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
   - ObjectiveDropboxOfficial (3.1.2)
-  - ObjectMapper (2.2.7)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
-  - RealmSwift (2.8.3):
-    - Realm (= 2.8.3)
   - TBDropboxKit (1.1.5):
     - CDBDelegateCollection (~> 1.1)
     - CDBKit (~> 1.1)
@@ -25,8 +19,6 @@ PODS:
 
 DEPENDENCIES:
   - Charts (~> 3.0)
-  - ObjectMapper (~> 2.2)
-  - RealmSwift (~> 2.8)
   - TinyDropbox (~> 1.0)
 
 SPEC CHECKSUMS:
@@ -35,13 +27,10 @@ SPEC CHECKSUMS:
   CDBKit: eb073c45d4bffbbad99dc9f2a79effbdab890ea7
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   ObjectiveDropboxOfficial: 9a147eccd987723f6b25b6923f57a5b3fcd3f4bd
-  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
-  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   TBDropboxKit: 1ba6d4882ece061ce716a42d6b1b6ac45aafdbd2
   TBLogger: 228c8ce0f8e6acdea7e85544f1567ead2af98411
   TinyDropbox: f54c34a67fe970f7bacdebcce9cc697a549e2a35
 
-PODFILE CHECKSUM: eebd5e95c7b73cac6f1feb24ffaa14f5504a80e6
+PODFILE CHECKSUM: 032ffebe7d8c530aa6b73bdef3ce2588cee2524a
 
 COCOAPODS: 1.2.1
