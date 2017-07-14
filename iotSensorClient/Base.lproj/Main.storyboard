@@ -298,6 +298,7 @@
                     <connections>
                         <outlet property="composerDataRequestUrlTitleLabel" destination="eHA-rU-dDp" id="Vm5-E6-QgH"/>
                         <outlet property="composerUrlValueLabel" destination="cD0-Ko-BDg" id="bjM-T9-s72"/>
+                        <outlet property="contentScrollView" destination="xeN-Cd-1oq" id="zDI-zi-4tP"/>
                         <outlet property="dataRequestTitleLabel" destination="Khe-di-u7V" id="u8e-x2-tOG"/>
                         <outlet property="ipAddressField" destination="n7Y-ij-Mk1" id="wYb-LD-TyE"/>
                         <outlet property="ipAddressLabel" destination="uTF-Fu-WoB" id="fGI-39-MmD"/>
