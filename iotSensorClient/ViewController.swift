@@ -32,13 +32,17 @@ class ViewController: UIViewController {
   private var requestingData: Bool = false
   
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        updateUI()
-        coPpmValueLabel.text = nil
-        chartView.noDataText = "No data."
-        	
-        chartView.chartDescription = nil
+      super.viewDidLoad()
+      // Do any additional setup after loading the view, typically from a nib.
+      updateUI()
+      coPpmValueLabel.text = nil
+      chartView.noDataText = "No data."
+        
+      chartView.chartDescription = nil
+    
+      navigationItem.title = "Session"
+      
+      navigationController?.isNavigationBarHidden = true
     }
   
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +53,8 @@ class ViewController: UIViewController {
       subscribeToNotifications()
       
       Settings.shared.updateRouterIp()
+      
+      navigationController?.isNavigationBarHidden = true
     }
   
      override func viewDidDisappear(_ animated: Bool) {
@@ -56,7 +62,7 @@ class ViewController: UIViewController {
         unsubscribeFromNotifications()
     }
   
-    // MARK: - events -
+    // MARK: - handle events -
 
     func dropboxDidCahngeState (notification: NSNotification) {
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -106,6 +112,10 @@ class ViewController: UIViewController {
       
       updalodToDropbox(from: url!)
     }
+  
+    func performSettingsSegue() {
+      performSegue(withIdentifier: "Settings", sender: self)
+    }
 
     // MARK: - logic -
   
@@ -131,9 +141,10 @@ class ViewController: UIViewController {
         else { return }
       
       requestingData = true
+      let url = Settings.shared.dataRequestUrl
       
       DispatchQueue.global(qos: .default).async { [weak self] in
-        let result = self?.performRequest()
+        let result = self?.performRequest(url)
         DispatchQueue.main.async {
           self?.requestingData = false
           self?.processResponse(result)
@@ -164,7 +175,7 @@ class ViewController: UIViewController {
       
       log.text = line + "\r\n" + log.text
       
-      coPpmValueLabel.text = String(ppm)
+      coPpmValueLabel.text = "CO " + String(ppm) + " ppm"
       
       let dataEntry = BarChartDataEntry(x: Double(dataEntriesCount), y: Double(ppm))
       dataEntries.append(dataEntry)
@@ -176,14 +187,7 @@ class ViewController: UIViewController {
       updateChartUI();
     }
   
-    func performRequest() -> responseType {
-        let ip = Settings.shared.sensorIp
-        guard ip != nil
-          else { return nil}
-        
-        let serverURLString = "http://" + ip! + ":8090"
-        let url = URL(string: serverURLString)
-        
+    func performRequest(_ url: URL?) -> responseType {
         guard url != nil
           else { return nil}
         

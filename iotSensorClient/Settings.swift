@@ -84,6 +84,18 @@ class Settings {
     }
   }
   
+  var dataRequestUrl : URL? {
+    get {
+     let ip = sensorIp
+     guard ip != nil
+        else { return nil}
+        
+      let serverURLString = "http://" + ip! + ":" + String(sensorPort)
+      let result = URL(string: serverURLString)
+      return result;
+    }
+  }
+  
   var requestIntervalInSec : Int {
     get {
       let result = UserDefaults.standard.integer(forKey: keyRequestIntervalInSec)
