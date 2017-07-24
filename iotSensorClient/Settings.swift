@@ -10,7 +10,10 @@ import Foundation
 
 fileprivate let defaultSensorPort: Int = 8090
 fileprivate let defaultSensorInApMode: Bool = true
-fileprivate let defaultRequestIntervalInSec: Int = 10
+fileprivate let defaultRequestIntervalInSec: Int = 1
+
+fileprivate let defaultAnalogZeroLevel: Int = 0
+fileprivate let defaultCoPpmCoefficient: Float = 1
 
 
 // MARK: - bundle keys -
@@ -21,10 +24,15 @@ fileprivate let keySensorApIp: String =  "keySensorApIpString"
 fileprivate let keySensorPort: String = "keySensorPortInt"
 fileprivate let keyRequestIntervalInSec: String = "keyRequestIntervalInSecInt"
 
+fileprivate let keyAnalogZeroLevel: String = "keyAnalogZeroLevelInt"
+fileprivate let keyCoPpmCoefficient: String = "keyCoPpmCoefficientFloat"
+
 // MARK: - settings -
 
 class Settings {
 
+  // MARK: - property -
+  
   static let shared: Settings = Settings()
 
   var sensorConnectedToRouter : Bool {
@@ -109,6 +117,36 @@ class Settings {
       UserDefaults.standard.set(newValue, forKey: keyRequestIntervalInSec)
     }
   }
+  
+   var analogZeroLevel : Int {
+    get {
+      let result = UserDefaults.standard.integer(forKey: keyAnalogZeroLevel)
+      guard result != 0
+        else { return defaultAnalogZeroLevel }
+      
+      return result
+    }
+    
+    set {
+      UserDefaults.standard.set(newValue, forKey: keyAnalogZeroLevel)
+    }
+  }
+  
+  var coPpmCoefficient : Float {
+    get {
+      let result = UserDefaults.standard.float(forKey: keyCoPpmCoefficient)
+      guard result != 0
+        else { return defaultCoPpmCoefficient }
+      
+      return result
+    }
+    
+    set {
+      UserDefaults.standard.set(newValue, forKey: keyCoPpmCoefficient)
+    }
+  }
+
+  // MARK: - logic -
   
   func updateRouterIp() {
     let ip = SCRouter.routerIP()

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "92915DA990FC0955FBEDE9866CCBB4A9"
+               BlueprintIdentifier = "4FD08D71384B2CD95FBB1CAD1CC3DD0F"
                BuildableName = "Pods_iotSensorClientPod_iotSensorClient.framework"
                BlueprintName = "Pods-iotSensorClientPod-iotSensorClient"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "92915DA990FC0955FBEDE9866CCBB4A9"
+            BlueprintIdentifier = "4FD08D71384B2CD95FBB1CAD1CC3DD0F"
             BuildableName = "Pods_iotSensorClientPod_iotSensorClient.framework"
             BlueprintName = "Pods-iotSensorClientPod-iotSensorClient"
             ReferencedContainer = "container:Pods.xcodeproj">

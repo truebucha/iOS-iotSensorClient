@@ -32,6 +32,8 @@ end
 abstract_target 'iotSensorClientPod' do
     pod 'Charts', '~> 3.0'
     pod 'TinyDropbox', '~> 1.0'
+    pod 'RxSwift',    '~> 3.0'
+    pod 'RxCocoa',    '~> 3.0'
     #pod 'RealmSwift', '~> 2.8'
     #pod 'ObjectMapper', '~> 2.2'
 

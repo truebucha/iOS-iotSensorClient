@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 
 
 class SettingsViewController: UIViewController {
@@ -30,10 +31,51 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var timeIntervalLabel: UILabel!
   @IBOutlet weak var timeIntervalField: UITextField!
   
+  @IBOutlet weak var analogZeroLabel: UILabel!
+  @IBOutlet weak var analogZeroField: UITextField!
+  @IBOutlet weak var coefficientCoPpmLabel: UILabel!
+  @IBOutlet weak var coefficientCoPpmField: UITextField!
+  
+  private let disposeBag = DisposeBag()
+  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.navigationController?.isNavigationBarHidden = false
+    
+    
+    analogZeroField.text = String(Settings.shared.analogZeroLevel)
+    analogZeroField.rx.text
+      .throttle(1, latest: true, scheduler: MainScheduler.instance)
+      .bind { (value) in
+        guard value != nil
+          else { return }
+        
+        let analogZeroLevel = Int(value!)
+        
+        guard analogZeroLevel != nil
+          else { return }
+        
+        Settings.shared.analogZeroLevel = analogZeroLevel!
+      }
+      .disposed(by: disposeBag)
+    
+    coefficientCoPpmField.text = String(Settings.shared.coPpmCoefficient)
+    coefficientCoPpmField.rx.text
+      .throttle(1, latest: true, scheduler: MainScheduler.instance)
+      .bind { (value) in
+        guard value != nil
+          else { return }
+        
+        let coPpmCoefficient = Float(value!)
+        
+        guard coPpmCoefficient != nil
+          else { return }
+        
+        Settings.shared.coPpmCoefficient = coPpmCoefficient!
+      }
+      .disposed(by: disposeBag)
   }
 
   override func viewWillAppear(_ animated: Bool) {
