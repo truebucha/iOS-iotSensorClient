@@ -12,7 +12,7 @@ fileprivate let defaultSensorPort: Int = 8090
 fileprivate let defaultSensorInApMode: Bool = true
 fileprivate let defaultRequestIntervalInSec: Int = 1
 
-fileprivate let defaultAnalogZeroLevel: Int = 0
+fileprivate let defaultAnalogZeroLevel: Float = 0.0
 fileprivate let defaultCoPpmCoefficient: Float = 1
 
 
@@ -118,9 +118,9 @@ class Settings {
     }
   }
   
-   var analogZeroLevel : Int {
+   var analogZeroLevel : Float {
     get {
-      let result = UserDefaults.standard.integer(forKey: keyAnalogZeroLevel)
+      let result = UserDefaults.standard.float(forKey: keyAnalogZeroLevel)
       guard result != 0
         else { return defaultAnalogZeroLevel }
       

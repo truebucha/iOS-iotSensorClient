@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController {
         guard value != nil
           else { return }
         
-        let analogZeroLevel = Int(value!)
+        let analogZeroLevel = Float(value!)
         
         guard analogZeroLevel != nil
           else { return }

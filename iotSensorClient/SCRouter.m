@@ -16,11 +16,11 @@
 #include <string.h>
 #include <arpa/inet.h>
 
-#if TARGET_IPHONE_SIMULATOR
-#include <net/route.h>
-#else
+//#if TARGET_IPHONE_SIMULATOR
+//#include <net/route.h>
+//#else
 #include "Route.h"
-#endif
+//#endif
 
 #define CTL_NET         4               /* network, see socket.h */
 
