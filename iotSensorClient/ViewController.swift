@@ -168,10 +168,11 @@ class ViewController: UIViewController {
       let pressure = response?["pressure"] ?? 0.0
       let humidity = response?["humidity"] ?? 0.0
       
-      let ppm = (analog - Float(Settings.shared.analogZeroLevel)) * Settings.shared.coPpmCoefficient
-      
+      let ppm = (analog - Settings.shared.analogZeroLevel) * Settings.shared.coPpmCoefficient
+      let ppmString = String(format: "%\(ppm)1", ppm)
+        
       var line = date
-      line += " CO = \(ppm)"
+      line += " CO = \(ppmString)"
       line += " Temp = \(temp)"
       line += " Pres = \(pressure)"
       line += " Humi = \(humidity)"
