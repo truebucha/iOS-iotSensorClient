@@ -35,6 +35,9 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var analogZeroField: UITextField!
   @IBOutlet weak var coefficientCoPpmLabel: UILabel!
   @IBOutlet weak var coefficientCoPpmField: UITextField!
+  @IBOutlet weak var coPpmDecimalPlacesLabel: UILabel!
+  @IBOutlet weak var coPpmDecimalPlacesField: UITextField!
+
   
   private let disposeBag = DisposeBag()
   
@@ -43,7 +46,6 @@ class SettingsViewController: UIViewController {
     super.viewDidLoad()
     
     self.navigationController?.isNavigationBarHidden = false
-    
     
     analogZeroField.text = String(Settings.shared.analogZeroLevel)
     analogZeroField.rx.text
@@ -76,7 +78,23 @@ class SettingsViewController: UIViewController {
         Settings.shared.coPpmCoefficient = coPpmCoefficient!
       }
       .disposed(by: disposeBag)
-  }
+    
+      coPpmDecimalPlacesField.text = String(Settings.shared.coPpmDecimalPlaces)
+      coPpmDecimalPlacesField.rx.text
+        .throttle(1, latest: true, scheduler: MainScheduler.instance)
+        .bind { (value) in
+        guard value != nil
+        else { return }
+        
+        let coPpmDecimalPlaces = Int(value!)
+        
+        guard coPpmDecimalPlaces != nil
+            else { return }
+        
+        Settings.shared.coPpmDecimalPlaces = coPpmDecimalPlaces!
+        }
+        .disposed(by: disposeBag)
+}
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)

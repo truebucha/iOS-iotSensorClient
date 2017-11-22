@@ -14,6 +14,7 @@ fileprivate let defaultRequestIntervalInSec: Int = 1
 
 fileprivate let defaultAnalogZeroLevel: Float = 0.0
 fileprivate let defaultCoPpmCoefficient: Float = 1
+fileprivate let defaultCoPpmDecimalPlaces: Int = 1
 
 
 // MARK: - bundle keys -
@@ -26,6 +27,7 @@ fileprivate let keyRequestIntervalInSec: String = "keyRequestIntervalInSecInt"
 
 fileprivate let keyAnalogZeroLevel: String = "keyAnalogZeroLevelInt"
 fileprivate let keyCoPpmCoefficient: String = "keyCoPpmCoefficientFloat"
+fileprivate let keyCoPpmDecimalPlaces: String = "keyCoPpmDecimalPlacesInt"
 
 // MARK: - settings -
 
@@ -143,6 +145,20 @@ class Settings {
     
     set {
       UserDefaults.standard.set(newValue, forKey: keyCoPpmCoefficient)
+    }
+  }
+    
+  var coPpmDecimalPlaces : Int {
+    get {
+        let result = UserDefaults.standard.integer(forKey: keyCoPpmDecimalPlaces)
+        guard result != 0
+            else { return defaultCoPpmDecimalPlaces }
+        
+        return result
+    }
+    
+    set {
+        UserDefaults.standard.set(newValue, forKey: keyCoPpmDecimalPlaces)
     }
   }
 
