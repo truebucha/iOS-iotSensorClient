@@ -180,7 +180,7 @@ class ViewController: UIViewController {
       
       log.text = line + "\r\n" + log.text
         
-      let ppmString = String(format: "%\(ppm)1", ppm)
+      let ppmString = String(format: "%.1f", ppm)
       coPpmValueLabel.text = "CO " + ppmString + " ppm"
       
       let dataEntry = BarChartDataEntry(x: Double(dataEntriesCount), y: Double(ppm))
