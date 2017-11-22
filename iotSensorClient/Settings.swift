@@ -108,9 +108,10 @@ class Settings {
   
   var requestIntervalInSec : Int {
     get {
-      let result = UserDefaults.standard.integer(forKey: keyRequestIntervalInSec)
-      guard result != 0
+      guard UserDefaults.standard.dictionaryRepresentation().keys.contains(keyRequestIntervalInSec)
         else { return defaultRequestIntervalInSec }
+        
+      let result = UserDefaults.standard.integer(forKey: keyRequestIntervalInSec)
       
       return result
     }
@@ -122,9 +123,9 @@ class Settings {
   
    var analogZeroLevel : Float {
     get {
-      let result = UserDefaults.standard.float(forKey: keyAnalogZeroLevel)
-      guard result != 0
+      guard UserDefaults.standard.dictionaryRepresentation().keys.contains(keyAnalogZeroLevel)
         else { return defaultAnalogZeroLevel }
+      let result = UserDefaults.standard.float(forKey: keyAnalogZeroLevel)
       
       return result
     }
@@ -136,10 +137,10 @@ class Settings {
   
   var coPpmCoefficient : Float {
     get {
-      let result = UserDefaults.standard.float(forKey: keyCoPpmCoefficient)
-      guard result != 0
+      guard UserDefaults.standard.dictionaryRepresentation().keys.contains(keyCoPpmCoefficient)
         else { return defaultCoPpmCoefficient }
-      
+        
+      let result = UserDefaults.standard.float(forKey: keyCoPpmCoefficient)
       return result
     }
     
@@ -150,9 +151,10 @@ class Settings {
     
   var coPpmDecimalPlaces : Int {
     get {
+        guard UserDefaults.standard.dictionaryRepresentation().keys.contains(keyCoPpmDecimalPlaces)
+          else { return defaultCoPpmDecimalPlaces }
+        
         let result = UserDefaults.standard.integer(forKey: keyCoPpmDecimalPlaces)
-        guard result != 0
-            else { return defaultCoPpmDecimalPlaces }
         
         return result
     }
