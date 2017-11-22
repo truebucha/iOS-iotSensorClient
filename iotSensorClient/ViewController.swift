@@ -169,18 +169,19 @@ class ViewController: UIViewController {
       let humidity = response?["humidity"] ?? 0.0
       
       let ppm = (analog - Settings.shared.analogZeroLevel) * Settings.shared.coPpmCoefficient
-      let ppmString = String(format: "%\(ppm)1", ppm)
+      
         
       var line = date
-      line += " CO = \(ppmString)"
+      line += " CO = \(ppm)"
       line += " Temp = \(temp)"
       line += " Pres = \(pressure)"
       line += " Humi = \(humidity)"
       line += " A = \(analog)"
       
       log.text = line + "\r\n" + log.text
-      
-      coPpmValueLabel.text = "CO " + String(ppm) + " ppm"
+        
+      let ppmString = String(format: "%\(ppm)1", ppm)
+      coPpmValueLabel.text = "CO " + ppmString + " ppm"
       
       let dataEntry = BarChartDataEntry(x: Double(dataEntriesCount), y: Double(ppm))
       dataEntries.append(dataEntry)
