@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 
-typealias responseType = Dictionary<String, Float>?
+typealias responseType = Dictionary<String, Double>?
 
 fileprivate let maxDisplayableEntriesCount: Int = 15;
 
@@ -168,8 +168,7 @@ class ViewController: UIViewController {
       let pressure = response?["pressure"] ?? 0.0
       let humidity = response?["humidity"] ?? 0.0
       
-      let ppm = (analog - Settings.shared.analogZeroLevel) * Settings.shared.coPpmCoefficient
-      
+      let ppm = (analog - Settings.shared.analogZeroLevel) * Double(Settings.shared.coPpmCoefficient)
         
       var line = date
       line += " CO = \(ppm)"
@@ -199,18 +198,34 @@ class ViewController: UIViewController {
         
         let data = try? NSData(contentsOf: url!) as Data
         
-        guard data != nil
-          else { return nil}
+        guard data != nil else {
+            
+            return nil
+        }
       
         let result = parseJSON(using: data!)
         return result
     }
 
-    func parseJSON(using data: Data) -> Dictionary<String, Float>? {
-        let result = try? JSONSerialization.jsonObject(with: data,
-                                                       options: .mutableContainers)
-
-        return result as? Dictionary<String, Float>
+    func parseJSON(using data: Data) -> responseType {
+        
+        var dict: Any? = nil
+        do {
+          dict = try JSONSerialization.jsonObject(with: data,
+                                                    options: .mutableContainers)
+        } catch let error {
+            let string = String(data: data, encoding: .utf8)
+            print("failed to parse JSON string \(string) with error: \(error)")
+        }
+        
+        let result = dict as? Dictionary<String, Double>
+        
+        if result == nil {
+            
+            print("result nil")
+        }
+        
+        return result;
     }
   
     func updateUI() {

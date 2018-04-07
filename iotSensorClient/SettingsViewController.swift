@@ -47,19 +47,74 @@ class SettingsViewController: UIViewController {
     
     self.navigationController?.isNavigationBarHidden = false
     
+    userDefinedIpSwitch.isOn = Settings.shared.sensorConnectedToRouter
+    
+    userDefinedIpSwitch.rx.isOn
+        .throttle(1, latest: true, scheduler: MainScheduler.instance)
+        .bind { (value) in
+            
+            Settings.shared.sensorConnectedToRouter = value
+    }.disposed(by: disposeBag)
+    
+    composerUrlValueLabel.text = Settings.shared.dataRequestUrl?.absoluteString
+    
+    portField.text = String(Settings.shared.sensorPort)
+    portField.rx.text
+        .throttle(1, latest: true, scheduler: MainScheduler.instance)
+        .bind { (value) in
+            
+            guard let validValue = value,
+                let port = Int(validValue) else {
+                
+                return
+            }
+            
+            Settings.shared.sensorPort = port
+        }
+        .disposed(by: disposeBag)
+    
+    ipAddressField.text = Settings.shared.userDefinedSensorIp
+    ipAddressField.rx.text
+        .throttle(1, latest: true, scheduler: MainScheduler.instance)
+        .bind { (value) in
+            
+            guard let validValue = value,
+                validValue.split(separator: ".").count == 4 else {
+                    
+                return
+            }
+            
+            Settings.shared.userDefinedSensorIp = validValue
+        }
+        .disposed(by: disposeBag)
+    
+    urlPathField.text = Settings.shared.sensorPath
+    urlPathField.rx.text
+        .throttle(1, latest: true, scheduler: MainScheduler.instance)
+        .bind { (value) in
+            
+            guard let validValue = value,
+                  validValue.count > 0 else {
+                    
+                return
+            }
+            
+            Settings.shared.sensorPath = validValue
+        }
+        .disposed(by: disposeBag)
+    
     analogZeroField.text = String(Settings.shared.analogZeroLevel)
     analogZeroField.rx.text
       .throttle(1, latest: true, scheduler: MainScheduler.instance)
       .bind { (value) in
-        guard value != nil
-          else { return }
+
+        guard let validValue = value,
+            let analogZeroLevel = Double(validValue) else {
+            
+            return
+        }
         
-        let analogZeroLevel = Float(value!)
-        
-        guard analogZeroLevel != nil
-          else { return }
-        
-        Settings.shared.analogZeroLevel = analogZeroLevel!
+        Settings.shared.analogZeroLevel = analogZeroLevel
       }
       .disposed(by: disposeBag)
     
