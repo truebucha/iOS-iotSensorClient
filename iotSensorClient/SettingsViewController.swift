@@ -103,6 +103,21 @@ class SettingsViewController: UIViewController {
         }
         .disposed(by: disposeBag)
     
+    timeIntervalField.text = String(Settings.shared.requestIntervalInSec)
+    timeIntervalField.rx.text
+        .throttle(1, latest: true, scheduler: MainScheduler.instance)
+        .bind { (value) in
+            
+            guard let validValue = value,
+                let timeInterval = Int(validValue) else {
+                    
+                    return
+            }
+            
+            Settings.shared.requestIntervalInSec = timeInterval
+        }
+        .disposed(by: disposeBag)
+    
     analogZeroField.text = String(Settings.shared.analogZeroLevel)
     analogZeroField.rx.text
       .throttle(1, latest: true, scheduler: MainScheduler.instance)
