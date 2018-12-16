@@ -74,7 +74,10 @@ class ViewController: UIViewController {
 //          
 //       }
     }
-  
+    @IBAction func handleCalibrateTouch(_ sender: Any) {
+        
+    }
+    
     @IBAction func toggleStartStop(_ sender: Any) {
       if (processing) {
         stopProcessing()
