@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '182BA265FBDC4D4853A1928E9146FBA2'
-               BlueprintName = 'CDBDelegateCollection'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'CDBDelegateCollection.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E7C9B525C47A0AEFD7E8C78E321C38B2"
+               BuildableName = "CDBDelegateCollection.framework"
+               BlueprintName = "CDBDelegateCollection"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

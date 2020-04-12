@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4FD08D71384B2CD95FBB1CAD1CC3DD0F"
+               BlueprintIdentifier = "88F4C20089EB9D06281B870E0266F90A"
                BuildableName = "Pods_iotSensorClientPod_iotSensorClient.framework"
                BlueprintName = "Pods-iotSensorClientPod-iotSensorClient"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4FD08D71384B2CD95FBB1CAD1CC3DD0F"
+            BlueprintIdentifier = "88F4C20089EB9D06281B870E0266F90A"
             BuildableName = "Pods_iotSensorClientPod_iotSensorClient.framework"
             BlueprintName = "Pods-iotSensorClientPod-iotSensorClient"
             ReferencedContainer = "container:Pods.xcodeproj">

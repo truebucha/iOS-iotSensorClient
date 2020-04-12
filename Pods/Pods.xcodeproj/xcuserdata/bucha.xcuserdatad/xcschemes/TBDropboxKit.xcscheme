@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6501EFCDA4B5BB26D0415A64E83E472D'
-               BlueprintName = 'TBDropboxKit'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'TBDropboxKit.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0B6479E85D073CE22086B458C372F8C7"
+               BuildableName = "TBDropboxKit.framework"
+               BlueprintName = "TBDropboxKit"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

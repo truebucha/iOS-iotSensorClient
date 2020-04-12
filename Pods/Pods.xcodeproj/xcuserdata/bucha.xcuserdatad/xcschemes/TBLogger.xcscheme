@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '571A5F93618A6B1DF6939B6CBA069A67'
-               BlueprintName = 'TBLogger'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'TBLogger.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AC3C245717D19147DA4702CA2A411237"
+               BuildableName = "TBLogger.framework"
+               BlueprintName = "TBLogger"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
